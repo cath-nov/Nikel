@@ -22,13 +22,13 @@
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                <div class="d-flex">
+                <div class="d-flex menu">
                     <a href="home.html"><button class="btn"><i class="bi bi-house-door-fill fs-4 color-secondary"></i></button></a>
                     <a href="transactions.html"><button class="btn"><i class="bi bi-currency-exchange fs-4"></i></button></a>
                     <div class="dropdown">
                         <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle fs-4"></i></i></button>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#">Sair</a></li>
+                        <ul class="dropdown-menu logout">
+                          <li><button class="dropdown-item" id="button-logout">Sair</button></li>
                         </ul>
                       </div>
                 </div>
@@ -42,7 +42,7 @@
             <div class="row ">
                 <div class="col d-flex mt-4 justify-content-start align-items-center">
                     <i class="bi bi-cash-coin color-primary icon-detail"></i>
-                    <span class="fs-2">R$ 0,00</span>
+                    <span class="fs-2" id="total">R$ 0,00</span>
                 </div>
                 <div class="col d-flex mt-4 justify-content-end">
                     <div class="text-center">
@@ -60,31 +60,23 @@
                             <div class="col-6">
                                 <span class="fs-4">Saídas <i class="bi bi-arrow-up-circle fs-2 align-middle"></i></span> 
                             </div>
-                            <div class="col-12">
+                            <div class="col-12 my-2">
                                 <hr>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-6">
-                                <div class="conteiner">
-                                    <div class="row">
-                                        <div class="col">
-                                            R$ 1.000,00
-                                        </div>
-                                    </div>
+                                <div class="conteiner p-0" id="cash-in-list">
+                                    
                                 </div>
                             </div>
                             <div class="col-6">
-                                <div class="conteiner">
-                                    <div class="row">
-                                        <div class="col">
-                                            R$ 500,00
-                                        </div>
-                                    </div>
+                                <div class="conteiner p-0" id="cash-out-list">
+                                   
                                 </div>
                             </div>
-                            <div class="col-12">
-                                <button type="button" class="btn button-default">Ver todas</button>       </button>
+                            <div class="col-12 mb-4">
+                                <button type="button" class="btn button-default" id="transactions-button">Ver todas</button>       </button>
                             </div>
                         </div>
                     </div>
@@ -93,7 +85,7 @@
             <button class="btn button-float" data-bs-toggle="modal" data-bs-target="#transaction-modal""><i class="bi bi-plus"></i></button>
         </div>
         <!-- Modal -->
-        <div class="modal fade" id="transaction-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="transaction-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
             <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -104,15 +96,15 @@
                     <div class="modal-body">                        
                         <div class="mb-3">
                           <label for="value-input" class="form-label">Valor</label>
-                          <input type="number" class="form-control" id="value-input" aria-describedby="emailHelp">
+                          <input type="number" class="form-control" id="value-input" aria-describedby="emailHelp" required>
                         </div>
                         <div class="mb-3">
                           <label for="description-input" class="form-label">Descrição</label>
-                          <input type="text" class="form-control" id="description-input">
+                          <input type="text" class="form-control" id="description-input" required>
                         </div>                                
                         <div class="mb-3">
                             <label for="date-input" class="form-label">Data</label>
-                            <input type="date" class="form-control" id="date-input">
+                            <input type="date" class="form-control" id="date-input" required>
                         </div>     
                         <div class="mb-3">
                             <div class="form-check form-check-inline">
@@ -127,7 +119,7 @@
                     </div>
                 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary button-cancel" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-secondary button-cancel" data-bs-dismiss="modal" >Cancelar</button>
                         <button type="submit" class="btn button-default">Adidionar</button>
                     </div>
                 </form>
