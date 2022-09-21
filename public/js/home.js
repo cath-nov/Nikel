@@ -20,7 +20,7 @@ window.onload=function(){
         e.preventDefault();
         
         const value = parseFloat(document.getElementById("value-input").value);
-        const description = document.getElementById("description-input".value);
+        const description = document.getElementById("description-input").value;
         const date = document.getElementById("date-input").value;
         const type = document.querySelector('input[name="type-input"]:checked').value;
         
